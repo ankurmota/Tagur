@@ -1,0 +1,33 @@
+﻿#toast-container > .toast {
+    background-image: none !important;
+    background-color: #373177;
+}
+
+    #toast-container > .toast:before {
+        position: relative;
+        font-family: FontAwesome;
+        font-size: 24px;
+        line-height: 18px;
+        float: left;
+        margin-left: -1em;
+        color: #FFF;
+        padding-right: 0.5em;
+        margin-right: 0.5em;
+    }
+
+#toast-container > .toast-success:before {
+    content: "\f0ee";
+}
+
+.about-link,
+.about-link:link,
+.about-link:active,
+.about-link:visited {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+    .about-link:hover {
+        color: #58973E;
+        text-decoration: none;
+    }

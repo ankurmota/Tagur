@@ -1,0 +1,89 @@
+/* -------------------- *\
+    #BUTTONS
+\* -------------------- */
+
+/**
+ * Buttons base styles
+ */
+
+#button {.btn(
+          @btn-color, 
+          @btn-color_hover, 
+          @btn-bg-color, 
+          @btn-bg-color_hover, 
+          @btn-border-color, 
+          @btn-border-color_hover) {
+    border-radius: 0;
+    border: 2px solid @btn-border-color;
+    background: @btn-bg-color;
+    color: @btn-color;
+    font-weight: 700;
+    font-size: @font-size-small;
+    text-transform: uppercase;
+    .transition(border-color .3s, color .3s;);
+    
+    > span {
+      position: relative;
+      .transition(left .3s, opacity .3s;);
+
+      &:first-child {
+        left: -@font-size-small;
+        width: @font-size-small;
+        .opacity(0);
+      }
+      &:last-child {
+        left: -(@font-size-small/2+1px);
+      }
+    }
+
+    &:hover, &:focus, &:active, &:active:focus {
+      border-color: @btn-border-color_hover;
+      background: @btn-bg-color_hover;
+      color: @btn-color_hover;
+      .box-shadow(none);
+      outline: none;
+
+      > span {
+
+        &:first-child {
+          left: 0;
+          .opacity(1);
+        }
+        &:last-child {
+          left: 0;
+        }
+      }
+
+    }
+  }
+}
+
+/* Default button */
+
+.btn-default {
+  #button > .btn(
+              @brand-primary, 
+              @brand-primary, 
+              transparent, 
+              transparent, 
+              @brand-primary,
+              @brand-primary);
+}
+
+/* Primary button */
+
+.btn-primary {
+  #button > .btn(
+              white, 
+              @brand-primary, 
+              transparent, 
+              transparent, 
+              white,
+              @brand-primary);
+}
+
+/* Extra large button */
+
+.btn-xl {
+  padding: @padding-large-vertical*1.5 @padding-large-horizontal*1.5;
+}

@@ -1,0 +1,113 @@
+/* -------------------- *\
+    #SIDEBAR
+\* -------------------- */
+
+/**
+ * Sidebar button
+ */
+
+.sidebar__btn {
+  padding: @navbar-padding-vertical @navbar-padding-horizontal 10px;
+  cursor: pointer;
+  color: @text-color;
+}
+.sidebar__btn_open {
+  position: fixed;
+  top:    0;
+  right:  0;
+  z-index: 1;
+}
+.sidebar-btn__caption,
+.sidebar-menu__ul > li > a {
+  font-weight: 700;
+  font-size: @font-size-small;
+  text-transform: uppercase;
+}
+.sidebar-btn__caption {
+  margin-right: 5px;
+}
+.sidebar-btn__icon {
+  .transition(all .3s);
+}
+.sidebar-btn-icon__unhover {
+  .opacity(1);
+}
+.sidebar-btn-icon__hover {
+  margin-left: -16px;
+  .opacity(0);
+}
+.sidebar__btn:hover .sidebar-btn-icon__unhover {
+  .rotate(360deg);
+  .opacity(0);
+}
+.sidebar__btn:hover .sidebar-btn-icon__hover {
+  .rotate(360deg);
+  .opacity(1);
+}
+
+/**
+ * Sidebar menu
+ */
+
+.sidebar__menu {
+  position: fixed;
+  top:    0;
+  right:  0;
+  height: 100%;
+  width:  100%;
+  background-color: fade(black, 60%);
+  overflow: auto;
+  z-index: 2;
+  .transition(all .3s);
+}
+@media(min-width: @grid-float-breakpoint) {
+  .sidebar__menu {
+    background-color: fade(black, 30%);
+  }
+}
+.sidebar__menu_hidden {
+  right: -100%;
+}
+@media(min-width: 200px) {
+  .sidebar__menu {
+    width: 200px;
+  }
+  .sidebar__menu_hidden {
+    right: -200px;
+  }
+}
+
+/* Sidebar brand */
+
+.sidebar-menu__brand {
+  color: @text-color;
+  padding: @navbar-padding-vertical @navbar-padding-horizontal;
+  font-size: @font-size-large;
+  border-top: 1px solid fade(white, 10%);
+  border-bottom: 1px solid fade(white, 10%);
+}
+
+/* Sidebar links */
+
+.sidebar-menu__ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+
+  > li > a {
+    display: block;
+    padding: 10px @navbar-padding-horizontal;
+    color: @text-color;
+    text-decoration: none;
+    .text-overflow();
+    .transition(color .3s);
+
+    &:hover, &:focus {
+      background: transparent;
+      color: @link-color;
+    }
+  }
+  > li.active > a {
+    color: @link-color;
+  }
+}

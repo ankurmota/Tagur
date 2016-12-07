@@ -1,0 +1,253 @@
+/* -------------------- *\
+    #LAYOUT :: CLASSIC
+\* -------------------- */
+ 
+html {
+  height: 100% !important; /* Added !important to override smoothscroll.js height: auto; */
+}
+body.classic {
+  position: relative;
+  height: 100%;
+  color: @gray;
+  text-shadow: none;
+
+  &::after {
+    content: "";
+  }
+
+  /* General */
+
+  .heading {
+    margin-top: 0;
+  }
+  .site-wrapper {
+    padding-top: 70px;
+    padding-bottom: 70px;
+    border-bottom: 1px solid #eee;
+  }
+  #about {
+    padding-bottom: 50px;
+  }
+  #about + .site-wrapper,
+  #pricing,
+  #team,
+  #features {
+    padding-bottom: 30px;
+  }
+  #portfolio {
+    padding-bottom: 60px;
+  }
+
+  /* Sidebar */
+
+  .sidebar__btn_open.sidebar__btn_alt {
+    color: @gray;
+  }
+
+  /* Welcome */
+
+  .welcome_classic {
+    display: table;
+    height: 100%;
+    min-height: 100%;
+    width: 100%;
+    background-image: url(../img/bg-pattern_alt.png), url(../img/screen-bg_11.jpg);
+    background-position: top left, center center;
+    background-size: auto, cover;
+    background-repeat: repeat, no-repeat;
+    background-attachment: fixed;
+    color: white;
+    text-shadow: 1px 1px 2px fade(black, 18%);
+  }
+  .welcome-classic__inner {
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  /* Portfolio */
+
+  #portfolio {
+    background: url(../img/screen-bg_12.jpg) center center / cover no-repeat fixed #f9f9f9;
+  }
+  .portfolio__items > .row > div {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  .portfolio__item {
+    margin-bottom: 10px;
+    padding: 7px;
+    background-color: white;
+    border: 1px solid #eee;
+  }
+  .portfolio-item__mask {
+    top: 7px; right: 7px; bottom: 7px; left: 7px;
+    width: auto; height: auto;
+  }
+
+  /* Team */
+
+  #team {
+    background-image: url(../img/bg-pattern.png), url(../img/screen-bg_5.jpg);
+    background-position: top left, center center;
+    background-size: auto, cover;
+    background-repeat: repeat, no-repeat;
+    background-attachment: fixed;
+    color: @text-color;
+  }
+
+  /* Contact */
+
+  #contact {
+    #gradient > .vertical-three-colors(#f9f9f9; white; 25%; white);
+  }
+  .contact__form {
+    margin-bottom: 0;
+
+    .form-control {
+      border: 1px solid #eee;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      background-color: white;
+      color: @gray;
+      .placeholder(@gray-light);
+      .box-shadow(none);
+
+      &:focus {
+        color: @gray;
+        .placeholder(@gray-light);
+      }
+    }
+  }
+
+  /* Alert message */
+
+  .contact-form__alert {
+    text-align: center;
+  }
+
+  /* reCAPTCHA custom styling */
+
+  .recaptcha__merge {
+    position: relative;
+  }
+  .recaptcha-merge__action {
+    position: absolute;
+    display: inline-block;
+    top: 50%;
+    right: 10px;
+    margin-top: -25px;
+  }
+  .recaptcha-merge__action > a {
+    display: block;
+    text-align: right;
+    text-shadow: 0 0 1px white;
+    color: #333333;
+  }
+  #recaptcha_image {
+    margin-bottom: 15px;
+  }
+  #recaptcha_image > img {
+    border-radius: 3px;
+  }
+  #recaptcha_image br:first-of-type {
+    display: none;
+  }
+  #recaptcha_image,
+  #recaptcha_image > img {
+    width: 100% !important;
+    height: auto !important;
+  }
+  #recaptcha_audio_play_again {
+    cursor: pointer;
+  }
+
+  /* Google maps */
+
+  .contact__map {
+    width: 100%;
+    height: 500px;
+    margin: -70px 0;
+  }
+
+  /* Footer */
+
+  footer {
+    width: 100%;
+    left: 0; bottom: 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: fade(black,70%);
+    color: white;
+    line-height: 40px;
+    text-align: center;
+
+    a, a:hover, a:focus {
+      color: white;
+    }
+    
+    .social__item {
+      .circle(40px);
+      display: inline-block;
+      background: fade(black,10%);
+      .transition(all .3s);
+
+      &:hover, &:focus {
+        background-color: fade(black,50%);
+        text-decoration: none;
+      }
+    }
+  }
+
+}
+
+/**
+ * Responsive
+ */
+
+@media(min-width: @grid-float-breakpoint) {
+
+  /* General */
+
+  body.classic .site-wrapper {
+    position: relative;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    border-bottom: 1px solid #eee;
+  }
+  body.classic #about {
+    padding-bottom: 80px;
+  }
+  body.classic #about + .site-wrapper,
+  body.classic #pricing,
+  body.classic #team,
+  body.classic #features {
+    padding-bottom: 60px;
+  }
+  #portfolio {
+    padding-bottom: 90px;
+  }
+
+  /* Navbar & sidebar */
+
+  body.classic .navbar-default,
+  body.classic .sidebar__menu {
+    background-color: fade(black,60%);
+  }
+
+  /* Footer */
+
+  body.classic footer {
+    text-align: left;
+  }
+  body.classic .social__items {
+    text-align: right;
+  }
+
+  /* Footer */
+
+  body.classic .contact__map {
+    height: 500px;
+    margin: -100px 0;
+  }
+
+}

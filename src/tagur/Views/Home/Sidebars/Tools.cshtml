@@ -1,0 +1,31 @@
+﻿@model tagur.Models.MainViewModel
+<!-- SIDEBAR
+============================== -->
+<!-- Sidebar button open -->
+<div class="hidden sidebar__btn sidebar__btn_open">
+    <span class="sidebar-btn__caption">Menu</span>
+    <span class="oi oi-menu sidebar-btn__icon sidebar-btn-icon__unhover " title="Open menu" aria-hidden="true"></span>
+    <span class="oi oi-arrow-left sidebar-btn__icon sidebar-btn-icon__hover" title="Open menu" aria-hidden="true"></span>
+</div>
+
+<!-- Sidebar menu -->
+<div class="sidebar__menu sidebar__menu_hidden">
+
+    <!-- Sidebar button close -->
+    <div class="sidebar__btn sidebar__btn_close">
+        <span class="sidebar-btn__caption">Menu</span>
+        <span class="oi oi-menu sidebar-btn__icon sidebar-btn-icon__unhover " title="Close menu" aria-hidden="true"></span>
+        <span class="oi oi-arrow-right sidebar-btn__icon sidebar-btn-icon__hover" title="Close menu" aria-hidden="true"></span>
+    </div>
+
+    <!-- Sidebar brand name -->
+    <div class="sidebar-menu__brand"><img style="margin-top:-10px" height="32" src="~/assets/img/tagur_sm.png" /></div>
+
+    <!-- Sidebar links -->
+    <ul class="fullpage__nav sidebar-menu__ul">
+        <li data-menuanchor="welcome"><a asp-fragment="welcome"></a></li>
+        <li data-menuanchor="portfolio"><a asp-fragment="portfolio">Image Results</a></li>        
+          
+    </ul>
+
+</div> <!-- / .sidebar-menu__ul -->

@@ -1,0 +1,99 @@
+﻿@model tagur.Models.MainViewModel
+@{
+    ViewData["Title"] = "tagur :: Connect(); //2016";
+}
+
+@{Html.RenderPartial("Navbars/Search", Model);}
+@{Html.RenderPartial("Sidebars/Search", Model);}
+    
+    <div id="fullpage">
+
+        <!--USE THIS FOR DIRECT SEARCH USING AUTOSUGGEST-->
+        <div class="site-wrapper">
+            <div class="container">
+
+                <div class="center-div">
+
+                    <div>
+                        <i style="font-size:36pt;" class="fa fa-search" aria-hidden="true"></i>
+                    </div>
+
+                    <div style="margin-top:20px">
+                        <span class="about-item__content">
+                            Search for:
+                        </span>
+                    </div>
+                    <input style="color:black" id="tags" name="tags">
+                    <form action="/" method="post">
+                        <input hidden="hidden" id="SearchQuery" name="SearchQuery" type="text" />
+                    </form>
+                    <div style="margin-top:40px;margin-bottom:40px">
+                        <span class="about-item__content">
+                            To search tagged images, enter a value and select an autosuggested tag.
+                        </span>
+                    </div>
+                    <div id="searchResultsList">
+                        @{Html.RenderPartial("SearchResults", Model);}
+                    </div>
+
+                </div>
+
+            </div>
+        </div>  
+
+        <!--USE THIS FOR SEARCH USING A BOT-->
+        <!--
+        <div class="site-wrapper">
+            <div class="container">
+
+                <div class="center-chat-div">
+                    <iframe src="[URL FROM BOT CONNECTED TO LUIS FROM BOT FRAMEWORK SITE]" style="height: 80%; width: 100%;"></iframe>
+                </div>
+
+            </div>
+        </div>
+        -->
+        
+        <div class="site-wrapper">
+            <div class="container">
+
+                <div class="center-div">
+
+
+                </div>
+
+            </div>
+        </div>
+            
+
+
+        
+        
+      
+
+    </div> 
+
+    <script type="text/javascript">
+    $(document).ready(function () {
+
+    $('#tags').autocomplete({
+        source: '@Url.Action("SuggestAsync", "Home")',
+        autoFocus: true,
+        select: function (event, ui) {
+
+            var searchValue = ui.item.value;
+
+            $("#searchResultsList").load('@(Url.Action("GetSearchResultImagesAsync", "Home"))', 'searchQuery=' + searchValue,
+                function (e,s) {
+                    window.location.hash = "#welcome";
+
+                });
+            }
+
+            });
+        })
+    </script>
+
+
+ 
+ 

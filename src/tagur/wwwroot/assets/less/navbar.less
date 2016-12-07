@@ -1,0 +1,100 @@
+/* -------------------- *\
+    #NAVBAR
+\* -------------------- */
+
+@navbar-height:                       70px;
+@navbar-default-color:                @text-color;
+@navbar-default-bg:                   fade(black,60%);
+@navbar-default-border:               transparent;
+@navbar-default-link-color:           @text-color;
+@navbar-default-link-hover-color:     @brand-primary;
+@navbar-default-link-active-color:    @brand-primary;
+@navbar-default-link-active-bg:       transparent;
+@navbar-default-link-disabled-color:  fade(@text-color,50%);
+@navbar-default-brand-hover-color:    @brand-primary;
+@navbar-default-toggle-hover-bg:      transparent;
+@navbar-default-toggle-icon-bar-bg:   @text-color;
+@navbar-default-toggle-border-color:  transparent;
+
+@media(min-width: @grid-float-breakpoint) {
+  .navbar-default {
+    background-color: fade(black,30%);
+  }
+}
+
+/**
+ * Navbar transform
+ */
+
+.navbar {
+  border-width: 0;
+  .transition(all .3s); 
+}
+@media(min-width: @grid-float-breakpoint) {
+  .navbar__initial {
+    padding-top: 20px;
+    background: transparent !important;
+  }
+}
+
+/**
+ * Navbar links and brand name
+ */
+
+.navbar-brand,
+.navbar-nav > li > a {
+  .transition(color .3s);
+}
+.navbar-nav > li > a {
+  position: relative;
+  font-size: @font-size-small;
+  font-weight: 700;
+  text-transform: uppercase;  
+}
+
+/**
+ * Navbar links underline
+ */
+
+@media(min-width: @grid-float-breakpoint) {
+  .navbar-nav > li {
+
+    > a {
+
+      /* Underline links on hover */
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        left:   51%; // 51% instead of 50% because of bug in IE
+        right:  51%;
+        bottom: 0;
+        height: 0;
+        border-bottom: 3px solid @brand-primary;
+        .transition(all .3s);
+      }
+      &:hover::after, &:focus::after {
+        left:  0;
+        right: 0;
+      }
+    }
+
+    /* Do not underline disabled links */
+    &.disabled > a::after {
+      display: none;
+    }
+  }
+}
+
+/**
+ * Navbar toggle
+ */
+
+.navbar-toggle {
+  .icon-bar {
+    .transition(background .3s);
+  }
+  &:hover .icon-bar, &:focus .icon-bar {
+    background: @brand-primary;
+  }
+}

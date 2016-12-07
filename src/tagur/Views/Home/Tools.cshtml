@@ -1,0 +1,67 @@
+﻿@model tagur.Models.MainViewModel
+@{
+    ViewData["Title"] = "tagur :: Connect(); //2016";
+}
+
+@{Html.RenderPartial("Navbars/Tools", Model);}
+@{Html.RenderPartial("Sidebars/Tools", Model);}
+    
+    <div id="fullpage">
+      
+        <div class="site-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h1 class="heading heading_lg">
+                            <img src="~/assets/img/tagur_sm.png"/>
+                        </h1>
+
+                        <p class="heading__sub">
+                            Your images are being analyzed, captioned, and tagged. This should only take a moment...
+                        </p>
+
+                        <div class="text-center">
+ 
+                        </div>
+
+                    </div>
+                </div> 
+            </div>  
+        </div>  
+       
+        <div class="site-wrapper">
+            <div class="container">
+
+                <div class="center-div">
+                    
+                    <div id="imagesList">
+                        @{Html.RenderPartial("ImageResults", Model);}
+                    </div>
+
+                </div>
+
+            </div>  
+        </div>  
+
+        <div class="site-wrapper">
+            <div class="container">
+
+                <div class="center-div">
+
+                </div>
+            </div> 
+        </div>  
+    </div>  
+    <script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $("#imagesList").load('@(Url.Action("GetAnalyzedImagesAsync","Home"))', function () {
+            window.location.hash = "#portfolio";
+        });
+
+    });
+    </script> 
+ 
+ 
+ 

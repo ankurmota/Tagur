@@ -1,0 +1,32 @@
+﻿@model tagur.Models.MainViewModel
+
+@foreach (var image in Model.SearchResultImages)
+{
+    <div style="width:160px;float: left;">
+
+        <a href="@image.ImageUrl" rel="lightbox" title="@image.Caption">
+            <img src="@image.ThumbnailUrl" width="150" title="@image.Caption" style="padding-right: 5px; padding-bottom: 5px" />
+        </a>
+
+        <div style="width:150px">@image.Caption</div>
+        <div style="width:150px;margin:5px">
+
+            @{  var startDownloadFunction = "startSearchDownload(this, '" + image.Id + "')";}
+
+            @if (!string.IsNullOrEmpty(Model.User.accessToken))
+            {
+                <button onclick="@startDownloadFunction" class="btn-link" style="color:white" id="downloadImage" name="downloadImage" title="Click to download">
+                    <i style="font-size:18pt" class="fa fa-download" aria-hidden="true"></i>
+                </button>
+            }
+            <button class="btn-link" style="color:white" id="infoImage" name="infoImage">
+                <i style="font-size:18pt" class="fa fa-info-circle" aria-hidden="true"></i>
+            </button>
+            <button class="btn-link" style="color:white" id="tagsImage" name="tagsImage" title="@string.Join(", ", image.Tags)">
+                <i style="font-size:18pt" class="fa fa-tags" aria-hidden="true"></i>
+            </button>
+        </div>
+    </div>
+}
+
+
